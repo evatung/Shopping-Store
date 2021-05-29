@@ -26,14 +26,16 @@ class Login extends React.Component {
         // 4.按submit後回首頁
         this.props.history.push('/');
     }
-
+    state = {
+        isUserTyping: false,
+    }
     render() {
         return (
             <div className='Login-wrapper'>
                 {/* <button onClick={event => this.handleClick("Eva", event)}> Buy Something! </button> */}
                 <form className='box login-box' onSubmit={this.handleSubmit}>
                     <div className='field'>
-                        <label className='label'>Email</label>
+                        <label className='label'>{this.state.isUserTyping ? "Typing..." : "Email"}</label>
                         <div className='cobtrol'>
                             <input className='input' type='text' placeholder='Email' ref={this.emailRef} />
                         </div>
@@ -45,7 +47,8 @@ class Login extends React.Component {
                         </div>
                     </div>
                     <div className='control'>
-                        <button className='button is-fullwidth is-primary'>Submit</button>
+                        <button className='button is-fullwidth is-primary'>Submit
+                        </button>
                     </div>
                 </form>
             </div>)
